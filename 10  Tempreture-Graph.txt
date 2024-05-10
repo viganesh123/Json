@@ -1,0 +1,32 @@
+#include "dht.h"
+#define dataPin 2
+   	
+dht DHT;
+int i = 0;
+int temp;
+int hum;
+ 
+void setup() {
+ Serial.begin(9600);
+ Serial.println("Ready");
+ delay(5000);
+}
+ 
+void loop(){
+  int readData = DHT.read11(dataPin);
+  hum = DHT.humidity;
+  temp = DHT.temperature;
+ 
+  Serial.println();
+ 
+  Serial.println(hum);
+  Serial.print("Humidity: ");
+ 
+  Serial.print(",");
+  Serial.print("Temp: ");
+  Serial.println(temp);
+  Serial.print("o"); //degree symbol
+  Serial.print("C ");
+  Serial.print(",");
+}
+
